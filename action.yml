@@ -92,12 +92,15 @@ runs:
 
     # Create and store PNG...
     - name: Render SVG from GDS
+      shell: bash
       run: ./tt/tt_tool.py --create-svg
 
     - name: Convert SVG to PNG
+      shell: bash
       run: rsvg-convert --unlimited gds_render.svg -s <(echo 'text{display:none;}') -o gds_render_png24.png --no-keep-image-data
 
     - name: Shrink PNG
+      shell: bash
       run: |
         pngquant --nofs --strip --output gds_render.png gds_render_png24.png
         ls -al gds_render*.png
