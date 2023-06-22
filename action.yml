@@ -102,7 +102,7 @@ runs:
     - name: Shrink PNG
       shell: bash
       run: |
-        pngquant --speed 1 --nofs --strip --output gds_render.png gds_render_png24.png
+        pngquant --quality 10-30 --speed 1 --nofs --strip --output gds_render.png gds_render_png24.png
         ls -al gds_render*.png
 
     - name: Upload gds_render (png) artifact
